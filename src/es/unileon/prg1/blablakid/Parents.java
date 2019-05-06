@@ -16,7 +16,7 @@ public class Parents {
 	/**
 	 * Se inicia un Logger
 	 */
-	static final Logger log = LogManager.getLogger(Blablakid.class);
+	static final Logger log = LogManager.getLogger(MainBlablakid.class);
 	
 	/**
 	 * Counter identifier for parents.
