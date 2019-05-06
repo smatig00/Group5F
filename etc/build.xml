@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<project name="Blablakid" basedir=".." default="todo">
+	<property name="src" value="src"/>
+	<property name="test" value="test"/>
+	<property name="doc" value="doc"/>
+	<property name="logs" value="log"/>
+	<property name="conf" value="etc" />
+
+	<property name="classes" value="classes"/>
+	<property name="titulo" value="Blablakid"/>
+	<property name="pack" value="es.unileon.prg1.blablakid.*" />
+	
+	<path id="libs">
+			<fileset dir="lib" includes="**/*.jar" />
+		</path>
+	
+	<target name="clean">
+		<delete dir="${classes}"/>
+		<delete dir="${doc}"/>
+		<delete dir="${logs}"/>
+	</target>
+	<target name="compile" depends="clean">
+		<mkdir dir="${classes}"/>
+		<mkdir dir="${doc}"/>
+		<mkdir dir="${logs}"/>
+		<javac srcdir="${src}" destdir="${classes}" classpathref="libs" includeantruntime="false"/>
+		<echo message="Compilation...done"/>
+	</target>
+	<target name="compileTests" depends="compile">
+		<mkdir dir="${classes}"/>
+		<javac srcdir="${test}" destdir="${classes}" classpathref="libs" includeantruntime="false"/>
+		<echo message="Test compilation...done"/>
+	</target>
+	<target name="test" depends="compileTests" >
+		<java classname="org.junit.runner.JUnitCore" classpath="${classes}" classpathref="libs">
+			<sysproperty key="log4j.configurationFile" file="${conf}/log4j2.xml" />
+			<arg value="es.unileon.prg1.blablakid.AllTests"/>
+		</java>
+	</target>
+<target name="doc" depends="test">
+	<javadoc sourcepath="${src}" classpathref="libs" destdir="${doc}"
+	packagenames="${pack}" author="true" access="private" splitindex="true" version="true"
+				windowtitle="${titulo}" doctitle="${titulo}" />
+</target>
+<target name="run" depends="doc">
+	<property name="arg0" value="Finde"/>
+	<property name="arg1" value="7"/>
+	<property name="arg2" value="5"/>
+	<property name="arg3" value="10"/>
+	     <java classname="es.unileon.prg1.blablakid.MainBlablakid" classpath="${classes}" classpathref="libs">
+	     	<sysproperty key="log4j.configurationFile" file="${conf}/log4j2.xml" />
+	     	<arg value= "${arg0}"/>
+	     	<arg value= "${arg1}"/>
+	     	<arg value= "${arg2}"/>
+	     	<arg value= "${arg3}"/>
+	      </java>
+</target>
+<target name="todo" depends="run"/>
+</project>
+
