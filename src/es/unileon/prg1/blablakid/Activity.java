@@ -1,7 +1,7 @@
 package es.unileon.prg1.blablakid;
 
 /**
- * Class that represents the activity interface.
+ * Class that represents the activity.
  * 
  * @author Team 5F.
  * @version 1.0
@@ -9,7 +9,85 @@ package es.unileon.prg1.blablakid;
  */
 
 public class Activity {
-
+	
+	/**
+	 * Identifier to the name associated to the activity.
+	 * 
+	 */
+	private String name;
+	
+	/**
+	 * Identifier to the place associated to the activity.
+	 * 
+	 */
+	private String place;
+	
+	/**
+	 * Builder of the class. Creates an activity with name and place.
+	 * 
+	 * @param name
+	 * 			  Identifier to the name associated to the activity.
+	 * @param place
+	 *            Identifier to the place associated to the activity.
+	 */
+	public Activity(String name, String place /*, ...*/) {
+		this.name = name;
+		this.place = place;
+	}
+	
+	/**
+	 * Builder of the class. Copy of the builder of the class Activity.
+	 * 
+	 * @param another
+	 * 			Identifier of activity for the builder of the class copy.
+	 *
+	 */
+	public Activity(Activity another) {
+		this.name = another.getName();
+		this.place = another.getPlace();
+	}
+	
+	/**
+	 * Method of the class. Returns the activity' name.
+	 * 
+	 * @return activity' name.
+	 * 
+	 */
+	public String getName() {
+		return this.name;
+	}
+	
+	/**
+	 * Method of the class. Returns the activity' place.
+	 * 
+	 * @return activity's place.
+	 * 
+	 */
+	public String getPlace() {
+		return this.place;
+	}
+	
+	/**
+	 * Method of the class. Saves a new activity' place.
+	 * @param place
+	 * 			Identifier of the new activity' place.
+	 */
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	
+	/**
+	 * Method of the class. Prints what the returns indicates.
+	 * 
+	 * @return what the returns indicates.
+	 * 
+	 */
+	public String toString() {
+		return this.name + " : " + this.place;
+	}
+	
+	
+/*
 	private String act;
 	private String lugar;
 	private int day;
@@ -111,4 +189,5 @@ public class Activity {
 		
 		return endMin;
 	}
+*/
 }

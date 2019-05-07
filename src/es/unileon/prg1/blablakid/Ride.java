@@ -1,5 +1,13 @@
 package es.unileon.prg1.blablakid;
 
+/**
+ * Class that represents the ride.
+ * 
+ * @author Team 5F.
+ * @version 1.0
+ *
+ */
+
 public class Ride {
 	
 	private String Sride;

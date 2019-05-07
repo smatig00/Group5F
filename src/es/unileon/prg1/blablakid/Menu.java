@@ -267,7 +267,7 @@ public class Menu {
 			
 			System.out.println("Where does the ride end?");
 			String PlaceEndRide = Teclado.readString();
-			log.info("The place where the ride ends has been introduced." + PlaceEndRide)
+			log.info("The place where the ride ends has been introduced." + PlaceEndRide);
 			
 			try {
 				

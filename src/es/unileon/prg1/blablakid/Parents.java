@@ -14,7 +14,8 @@ import org.apache.logging.log4j.LogManager;
 public class Parents {
 	
 	/**
-	 * Se inicia un Logger
+	 * A Logger is started.
+	 * 
 	 */
 	static final Logger log = LogManager.getLogger(MainBlablakid.class);
 	
@@ -80,7 +81,7 @@ public class Parents {
 	}
 	
 	/**
-	 * Method of the class. Restarts the counter
+	 * Method of the class. Restarts the counter.
 	 * 
 	 */
 	public void restart() {
@@ -215,4 +216,63 @@ public class Parents {
 		}
 		return output.toString();
 	}
+	
+	
+	
+	/*private String padre;
+	private int hijos;
+	private int rides;
+	private String fav;
+	
+	public parents() {
+		
+		padre="desconocido";
+		hijos=0;
+		rides=0;
+		fav="desconocido";
+	}
+	
+	public void setNom(String Pnom) {
+		
+		this.padre=padre;
+	}
+	
+	public String getNom() {
+		
+		return padre;
+	}
+	
+	public void setHijos(int hijos) {
+		
+		this.hijos=hijos;
+	}
+	
+	public int getHijos() {
+		
+		return hijos;
+		
+	}
+
+	public void setRides(int rides) {
+		
+		this.rides=rides;
+	}
+	
+	public int getRides() {
+		
+		return rides;
+		
+	}
+	
+	public void setFav(String fav) {
+		
+		this.fav=fav;
+		
+	}
+	
+	public String getFav() {
+		
+		return fav;
+		
+	}*/
 }

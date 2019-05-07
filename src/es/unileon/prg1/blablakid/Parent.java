@@ -17,25 +17,7 @@ public class Parent {
 	private String name;
 	
 	/**
-	 * Identifier of the kids associated to the parent.
-	 * 
-	 */
-	private int kids;
-	
-	/**
-	 * Identifier of the rides associated to the parent.
-	 *
-	 */
-	private int rides;
-	
-	/**
-	 * 
-	 */
-	private String fav;
-	
-	/**
-	 * Identifier to the value associated to the parent.
-	 * 
+	 * Identifier to the name associated to the parent.
 	 */
 	private double value;
 	
@@ -94,90 +76,10 @@ public class Parent {
 	}
 	
 	/**
-	 * Builder of the class.
+	 * Method of the class. Prints what the returns indicates.
 	 * 
-	 */
-	public Parent() {
-		
-		//parent="desconocido";
-		kids=0;
-		rides=0;
-		fav="desconocido";
-	}
-	
-	/**
-	 * Method of the class.
+	 * @return what the returns indicates.
 	 * 
-	 * @param kids
-	 * 
-	 */
-	public void setKids(int kids) {
-		
-		this.kids=kids;
-	}
-	
-	/**
-	 * Method of the class.
-	 * 
-	 * @return
-	 * 
-	 */
-	public int getKids() {
-		
-		return kids;
-		
-	}
-
-	/**
-	 * Method of the class.
-	 * 
-	 * @param rides
-	 * 
-	 */
-	public void setRides(int rides) {
-		
-		this.rides=rides;
-	}
-	
-	/**
-	 * Method of the class.
-	 * 
-	 * @return
-	 * 
-	 */
-	public int getRides() {
-		
-		return rides;
-		
-	}
-	
-	/**
-	 * Method of the class.
-	 * 
-	 * @param fav
-	 * 
-	 */
-	public void setFav(String fav) {
-		
-		this.fav=fav;
-		
-	}
-	
-	/**
-	 * Method of the class.
-	 * 
-	 * @return
-	 * 
-	 */
-	public String getFav() {
-		
-		return fav;
-		
-	}
-	
-	/**
-	 * Metodo de la clase. Imprime lo que lo que se le indique en el return. Aun en proceso
-	 * @return Lo que se le diga que imprima
 	 */
 	public String toString() {
 		return this.name + " : " + this.value;
