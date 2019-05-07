@@ -63,7 +63,6 @@ public class Kid {
 	//llamar a las funciones addParent, addactivity...
 	
 	
-	
 	/**
 	 * Method of the class. Prints what the returns indicates.
 	 * 

@@ -2,8 +2,6 @@ package es.unileon.prg1.blablakid;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import javax.swing.*;
-import java.io.*;
 
 /**
  * Class that represents the user's text interface.
@@ -135,11 +133,12 @@ public class Menu {
 			String kidName = Teclado.readString();
 			log.info("The kid's name has been entered." + kidName);
 			
-			/*try {
-				
+			try {
+				kid = new Kid(kidName);
+				addKid(kid);
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}*/
+			}
 			break;
 			
 		case 2:	// remove kid
@@ -148,12 +147,12 @@ public class Menu {
 			String removeKidName = Teclado.readString();
 			log.info("The kid's name has been entered." + removeKidName);
 			
-			/*try {
+			try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
 
-			}*/
+			}
 			break;
 			
 		case 3:	//add parent

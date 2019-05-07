@@ -11,6 +11,12 @@ package es.unileon.prg1.blablakid;
 
 public class Time {
 
+	private int hora;
+	private int minuto;
 	
+	public Time(int hora, int minuto){
+		this.hora = hora;
+		this.minuto = minuto;
+	}
 
 }
