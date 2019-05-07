@@ -15,23 +15,40 @@ import java.io.*;
 public class Menu {
 	
 	/**
-	 * 
 	 * A logger is created for the Menu class.
 	 * 
 	 */
 	static final Logger log = LogManager.getLogger(MainBlablakid.class);
 	
 	/**
-	 * 
 	 * Identifier of the chosen option.
 	 * 
 	 */
 	private int option;
 	
 	/**
+	 * Object of type Parent.
 	 * 
 	 */
 	private Parent parent;
+	
+	/**
+	 * Object of type Kid.
+	 * 
+	 */
+	private Kid kid;
+	
+	/**
+	 * Object of type Ride.
+	 * 
+	 */
+	private Ride ride;
+	
+	/**
+	 * Object of type Activity.
+	 * 
+	 */
+	private Activity activity;
 
 	/**
 	 * 
@@ -118,11 +135,11 @@ public class Menu {
 			String kidName = Teclado.readString();
 			log.info("The kid's name has been entered." + kidName);
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 2:	// remove kid
@@ -131,12 +148,12 @@ public class Menu {
 			String removeKidName = Teclado.readString();
 			log.info("The kid's name has been entered." + removeKidName);
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
 
-			}
+			}*/
 			break;
 			
 		case 3:	//add parent
@@ -157,11 +174,11 @@ public class Menu {
 			
 			log.info();*/
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 4:	// remove parent
@@ -170,11 +187,11 @@ public class Menu {
 			String removeParentName = Teclado.readString();
 			log.info("The kid's name has been entered." + removeParentName);
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 5:	//add activity
@@ -183,7 +200,7 @@ public class Menu {
 			String ActivityName = Teclado.readString();
 			log.info("The kid's name has been entered." + ActivityName);
 			
-			System.out.println("Where does the activity " + act + " takes place?\n");
+			System.out.println("Where does the activity " + activity + " takes place?\n");
 			String place = Teclado.readString();
 			log.info("The activity place has been introduced." + place);
 			
@@ -199,11 +216,11 @@ public class Menu {
 			
 			log.info("The finish hour of the activity has been introduced.");
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 6:	//remove activity
@@ -216,11 +233,11 @@ public class Menu {
 			String removeActivityName = Teclado.readString();
 			log.info("The kid's name has been entered." + removeActivityName);
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 7:	//add ride
@@ -244,11 +261,11 @@ public class Menu {
 			
 			log.info("The day of the week for the ride has been introduced.");
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 8:	//remove ride
@@ -269,31 +286,31 @@ public class Menu {
 			String PlaceEndRide = Teclado.readString();
 			log.info("The place where the ride ends has been introduced." + PlaceEndRide);
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 9:	//show summary
 			
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 10: //check status
 			
 			
-			try {
+			/*try {
 				
 			}catch(BlablakidException error) {
 				System.out.println(error.getMessage());
-			}
+			}*/
 			break;
 			
 		case 0:	//exit
