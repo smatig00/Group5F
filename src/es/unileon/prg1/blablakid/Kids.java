@@ -30,11 +30,16 @@ public class Kids {
 	public void addKid(Kid kid){
 		if(buscar(kid.getName()) == true){
 			System.out.println("Error, el niño ya esta en la lista");
-		}else if(this.next == null){
+		}else if(isFull()){
 			System.out.println("Error, la lista esta completa");
 		}else{
 			this.kids[this.next++] = kid;
 		}
+	}
+	
+	public boolean isFull(){
+		
+		return true;
 	}
 	
 	/**
@@ -45,7 +50,7 @@ public class Kids {
 	public boolean buscar(String name){
 		boolean valido = false;
 		int contador = 0;
-		while(contador < this.siguiente){
+		while(contador < this.next){
 			if(this.kids[contador].getName().isSame(name)){
 				valido = true;
 				break;
@@ -58,18 +63,7 @@ public class Kids {
 	}
 	
 	
-	/**
-	 * Method of the class. Compare two kids to know if are the same.
-	 * @param name
-	 * @return boolean
-	 */
-	public boolean isSame(String name){
-		if(this.getName == name){
-			return true;
-		}else{
-			return false;
-		}
-	}
+	
 	
 	/**
 	 * Method of the class. Remove a kid to the list.

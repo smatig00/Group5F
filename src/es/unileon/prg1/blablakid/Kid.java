@@ -37,6 +37,20 @@ public class Kid {
 		
 	}
 	
+	
+	/**
+	 * Method of the class. Compare two kids to know if are the same.
+	 * @param name
+	 * @return boolean
+	 */
+	public boolean isSame(String name){
+		if(this.getName == name){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	/**
 	 * Builder of the class. Copy of the builder of the class Kid.
 	 * 
