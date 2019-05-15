@@ -23,13 +23,19 @@ public class Activities {
 	 * Counter identifier for activities.
 	 * 
 	 */
-	private int counter;
+	private int next;
 	
 	/**
 	 * Activity type array identifier. Array where activities are saved.
 	 * 
 	 */
 	private Activity[] activities;
+	private final int MAX_ACTIVITIES = 3;
+	
+	public Activities() {
+		this.activities = new Activity[MAX_ACTIVITIES];
+		this.next = 0;
+	}
 	
 	/**
 	 * Method of the class. Add activity, checks the state of the array that stores them and checks if it is full, empty or if there has been an error when adding them.
