@@ -11,7 +11,9 @@
 	<property name="pack" value="es.unileon.prg1.blablakid.*" />
 	
 	<path id="libs">
-			<fileset dir="lib" includes="**/*.jar" />
+			<fileset dir="lib" includes="junit-4.8.2.jar" />
+			<fileset dir="lib" includes="log4j-api-2.5.jar" />
+			<fileset dir="lib" includes="log4j-core-2.5.jar" />
 		</path>
 	
 	<target name="clean">
