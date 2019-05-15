@@ -21,6 +21,11 @@ public class Activity {
 	 * 
 	 */
 	private String place;
+	private WeekDays day;
+	private Time start;
+	private Time end;
+	private Ride before;
+	private Ride after;
 	
 	/**
 	 * Builder of the class. Creates an activity with name and place.
