@@ -30,48 +30,79 @@ public class Activities {
 	 * 
 	 */
 	private Activity[] activities;
+	
 	private final int MAX_ACTIVITIES = 3;
 	
+	/**
+	 * Builder of the class.
+	 * 
+	 */
 	public Activities() {
 		this.activities = new Activity[MAX_ACTIVITIES];
 		this.next = 0;
 	}
 	
 	/**
-	 * Method of the class. Add activity, checks the state of the array that stores them and checks if it is full, empty or if there has been an error when adding them.
+	 * Method of the class. Add an activity to the list and checks the state of the array that stores them and checks if it is full, or if there has been an error when adding them.
 	 * 
 	 * @param activity
-	 * 			Identifier of the activity.
-	 * @return if it has been added correctly.
+	 * 			Identifier of the activity
+	 * @return if it has been added correctly
 	 * @throws BlablakidException
 	 * 			Exception of the class
 	 * 
 	 */
 	public boolean addActivity(Activity activity) throws BlablakidException {
-		log.entry();
+		//log.entry();
 		
-		boolean ok = false;
-		
-		if(this.isFull()) {
-			log.error("Kid error: No more room left.");
-			throw new BlablakidException("Kid error: No more room left.");
-		
-		}else if(this.checkActivity(activity.getName() != -1)) {
-			log.error("Add activity error: Activity " + activity.getName() + " already in the aplication.");
+		if(search(activity.getName()) == true) {
+			//log.error("Add activity error: Activity " + activity.getName() + " already in the aplication.");
 			throw new BlablakidException("Add activity error: Activity " + activity.getName() + " already in the aplication.");
-		
-		}else if(activity.getName().isEmpty()) {
-			log.error("Add activity error: Activity' name is empty.");
-			throw new BlablakidException("Add activity error: Activity' name is empty.");
-		
-		}else {
-			activities[this.counter] = activity;
-			ok = true;
-			this.counter++;
+		}
+		else if(this.next == activities.length) {
+			//log.error("Add activity error: The list is full");
+			throw new BlablakidException("Add activity error: The list is full");
 		
 		}
-		log.exit();
+		else {
+			this.activities[this.next++] = activity;
+			return true;		
+		}
+		//log.exit();
+	}
+	
+	/**
+	 * Method of the class. Search an activity by its name.
+	 * @param name
+	 * @return boolean
+	 */
+	public boolean search(String name){
+		boolean ok = false;
+		int counter = 0;
+		while(counter < activities.length){
+			if(isSame(this.activities[counter].getName(), name)){
+				ok = true;
+				break;
+			}else{
+				ok = false;
+			}
+		}
+		
 		return ok;
+	}
+	
+	/**
+	 * Method of the class. Compare two activities to know if are the same.
+	 * @param name
+	 * @param newName
+	 * @return boolean
+	 */
+	public boolean isSame(String name, String newName){
+		if(name.equals(newName)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	/**
@@ -79,7 +110,6 @@ public class Activities {
 	 * 
 	 * @param activity
 	 * 			Identifier of the activity.
-	 * @throws BlablakidException 
 	 * @throws Blablakidexception
 	 * 			Exception of the class.
 	 * 
@@ -91,88 +121,42 @@ public class Activities {
 			
 		}else {
 			activities[pos] = null;
-			move(activities);
-			counter--;
+			move();
+			this.next--;
 		}
-	}
-	
-	/**
-	 * Method of the class. Restarts the counter.
-	 * 
-	 */
-	public void restart() {
-		this.counter = 0;
-	}
-	
-	/**
-	 * Method of the class. Checks if the array that stores the activities is full.
-	 * 
-	 * @return if the array is full returns true and if it's not returns false.
-	 * 
-	 */
-	public boolean isFull() {
-		if(counter == activities.length) return true;
-		else return false;
-	}
-	
-	/**
-	 * Method of the class. Returns the length of the array that stores the activities.
-	 * 
-	 * @return length of the array.
-	 * 
-	 */
-	public int length() {
-		return this.counter;
-	}
-	
-	/**
-	 * Method of the class. Checks if the activity is repeated.
-	 * 
-	 * @param activity
-	 * 			Identifier of the activity.
-	 * @return the position.
-	 *  
-	 */
-	public int checkActivity(String activity) {
-		int position = 0;
-		//position = binarySearch(new Activity(activity, 0));
-		return position;
-	}
-	
-	/**
-	 * Method of the class. Returns, after a comparison, the position where the first free hole is located, within the array of activities.
-	 * 
-	 * @param activity
-	 * 			Identifier of the activity.
-	 * @return the value that will be passed to the method.
-	 * 
-	 */
-	public int binarySearch(Activity activity) {
-		int value = -1;
-		for(int i = 0; i < counter; i++) {
-			if(activity.getName().compareTo(activities[i].getName()) == 0) {
-				value = i;
-				i = counter;
-			}
-		}
-		return value;
 	}
 	
 	/**
 	 * Method of the class. Moves a position activity, and places it where there is a free space.
 	 * 
-	 * @param activities
-	 * 			Identifier of the activities array.
-	 * 
 	 */
-	public void move(Activity[] activities) {
-		for (int i = 0; i < counter; i++) {
-			if(activities[i] == null && i != activities.length - 1) {
-				activities[i] = activities[(i+1)];
-				activities[(i+1)] = null;
+	private void move() {
+		for(int i = 0; i < activities.length-1; i++) {
+			if(activities[i] == null) {
+				activities[i] = activities[i+1];
+				activities[i+1] = null;
 			}
 		}
 	}
+	
+	/**
+	 * Method of the class. Checks if the activity is repeated.
+	 * 
+	 * @param name
+	 * @return the position.
+	 * 
+	 */
+	public int checkActivity(String name) {
+		for(int i = 0; i < activities.length; i++) {
+			if(activities[i].getName().equals(name)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	
+	
 	
 	/**
 	 * Method of the class. Prints the content of the activities array.
@@ -180,13 +164,13 @@ public class Activities {
 	 * @return the content of the activities array.
 	 * 
 	 */
-	public String toString() {
+	/*public String toString() {
 		StringBuilder output = new StringBuilder();
 		
-		for(int i = 0; i < this.counter; i++) {
+		for(int i = 0; i < this.next; i++) {
 			output.append(activities[i].toString() + "\n");
 		}
 		return output.toString();
-	}
+	}*/
 
 }
