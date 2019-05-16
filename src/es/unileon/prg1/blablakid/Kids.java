@@ -12,35 +12,62 @@ import org.apache.logging.log4j.LogManager;
  */
 
 public class Kids {
-
-	private int next;
-	private Kid[] kids;
-	private int counter;
 	
+	/**
+	 * A Logger is started.
+	 */
+	static final Logger log = LogManager.getLogger(MainBlablakid.class);
+	
+	/**
+	 * 
+	 */
+	private int next;
+	/**
+	 * Kid type array identifier. Array where kids are saved.
+	 * 
+	 */
+	private Kid[] kids;
+	
+	
+	/**
+	 * Builder of the class.
+	 * 
+	 */
 	public Kids(){
-		this.next = 0;
-		this.kids = new Kid[50];		
+		this.kids = new Kid[50];
+		this.next = 0;		
 
 	}
 	
 	/**
-	 * Method of the class. Add a kid to the list.
+	 * Method of the class. Add a kid to the list and checks the state of the array that stores them and checks if it is full, or if there has been an error when adding them.
 	 * 
 	 * @param kid
+	 * 			Identifier of the kid
+	 * @return if it has been added correctly
+	 * @throws BlablakidException 
+	 * 			Exception of the class
 	 */
-	public void addKid(Kid kid){
-		if(buscar(kid.getName()) == true){
-			System.out.println("Error, el ninio ya esta en la lista");
-		}else if(isFull()){
-			System.out.println("Error, la lista esta completa");
-		}else{
-			this.kids[this.next++] = kid;
-		}
-	}
-	
-	public boolean isFull(){
+	public boolean addKid(Kid kid) throws BlablakidException{
+		//log.entry();
 		
-		return true;
+		if(search(kid.getName()) == true){
+			//log.error("Add kid error: Kid " + kid.getName() + " already in the aplication.");
+			throw new BlablakidException("Add kid error: Kid " + kid.getName() + " already in the aplication.");
+			//System.out.println("Error, el ninio ya esta en la lista");
+			//return false;
+		}
+		else if(this.next == kids.length){
+			//log.error("Add kid error: The list is full");
+			throw new BlablakidException("Add kid error: The list is full");
+			//System.out.println("Error, la lista esta completa");
+			//return false;
+		}
+		else{
+			this.kids[this.next++] = kid;
+			return true;
+		}
+		//log.exit();
 	}
 	
 	/**
@@ -48,29 +75,43 @@ public class Kids {
 	 * @param name
 	 * @return boolean
 	 */
-	public boolean buscar(String name){
-		boolean valido = false;
-		int contador = 0;
-		while(contador < this.next){
-			if(this.kids[contador].getName().isSame(name)){
-				valido = true;
+	public boolean search(String name){
+		boolean ok = false;
+		int counter = 0;
+		while(counter < kids.length){
+			if(isSame(this.kids[counter].getName(), name)){
+				ok = true;
 				break;
 			}else{
-				valido = false;
+				ok = false;
 			}
 		}
 		
-		return valido;
+		return ok;
 	}
 	
 	
-	
+	/**
+	 * Method of the class. Compare two kids to know if are the same.
+	 * @param name
+	 * @param newName
+	 * @return boolean
+	 */
+	public boolean isSame(String name, String newName){
+		if(name.equals(newName)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 	/**
-	 * Method of the class. Remove a kid to the list.
+	 * Method of the class. Remove a kid from the array of kids.
 	 * 
 	 * @param kid
+	 * 			Identifier of the kids
 	 * @throws BlablakidException 
+	 * 			Exception of the class
 	 *
 	 */
 	public void removeKid(Kid kid) throws BlablakidException {
@@ -80,37 +121,40 @@ public class Kids {
 			
 		}else {
 			kids[pos] = null;
-			move(kids);
-			counter--;
+			move();
+			this.next--;
 		}
 	}
 	
-	public int checkKid(String kid) {
-		int position = 0;
-		position = binarySearch(new Kid(kid));
-		return position;
-	}
-	
-	/*public int binarySearch(Kid kid) {
-		int value = -1;
-		for(int i = 0; i < counter; i++) {
-			if(kid.getName().compareTo(kids[i].getName()) == 0) {
-				value = i;
-				i = counter;
+	/**
+	 * Method of the class. Moves a position kid, and places it where there is a free space.
+	 * 
+	 */
+	private void move() {
+		for(int i = 0; i < kids.length-1; i++) {
+			if(kids[i] == null) {
+				kids[i] = kids[i+1];
+				kids[i+1] = null;
 			}
 		}
-		return value;
-	}*/
-	
-	public void move(Kid[] kids) {
-		for (int i = 0; i < counter; i++) {
-			if(kids[i] == null && i != kids.length - 1) {
-				kids[i] = kids[(i+1)];
-				kids[(i+1)] = null;
+		
+	}
+
+	/**
+	 * Method of the class. Checks if the kid is repeated.
+	 * 
+	 * @param name
+	 * @return the position.
+	 * 
+	 */
+	public int checkKid(String name) {
+		for(int i = 0; i < kids.length; i++) {
+			if(kids[i].getName().equals(name)) {
+				return i;
 			}
 		}
+		return -1;
 	}
-	
 	
 	
 
