@@ -1,8 +1,5 @@
 package es.unileon.prg1.blablakid;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-
 /**
  * Class that represents the kid.
  * 
@@ -12,12 +9,6 @@ import org.apache.logging.log4j.LogManager;
  */
 
 public class Kid {
-	
-	/**
-	 * A Logger is started.
-	 * 
-	 */
-	static final Logger log = LogManager.getLogger(MainBlablakid.class);
 	
 	/**
 	 * Identifier of the name associated to the kid.
@@ -35,20 +26,6 @@ public class Kid {
 	public Kid(String name){	
 		this.name = name;
 		
-	}
-	
-	
-	/**
-	 * Method of the class. Compare two kids to know if are the same.
-	 * @param name
-	 * @return boolean
-	 */
-	public boolean isSame(String name){
-		if(this.getName == name){
-			return true;
-		}else{
-			return false;
-		}
 	}
 	
 	/**
@@ -74,8 +51,6 @@ public class Kid {
 		
 	}
 	
-	//llamar a las funciones addParent, addactivity...
-	
 	
 	/**
 	 * Method of the class. Prints what the returns indicates.
@@ -84,7 +59,9 @@ public class Kid {
 	 * 
 	 */
 	public String toString() {
-		return this.name;
+		String buffer = "";
+		buffer = buffer + name;
+		return buffer;
 	}
 	
 	
