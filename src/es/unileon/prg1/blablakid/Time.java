@@ -19,4 +19,8 @@ public class Time {
 		this.minuto = minuto;
 	}
 
+	public String toString() {
+		String buffer = String.valueOf(hora) + ":" + String.valueOf(minuto);
+		return buffer;
+	}
 }
