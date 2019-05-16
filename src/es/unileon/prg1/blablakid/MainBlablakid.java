@@ -37,33 +37,10 @@ public class MainBlablakid {
 				System.out.println("");
 				
 			}
-			MainBlablakid blablakid = new MainBlablakid(num);
+			Blablakid blablakid = new MainBlablakid(num);
 			TextUI textUI = new TextUI(blablakid);
 			textUI.start();
 		}
 	}
 
-	
-	/*public static void main(String args[]) throws IOException {
-	
-	int elegir=0;
-	List <kid> listaKids = new ArrayList<kid> ();
-	Dialogo opcion = new Dialogo();
-    Dialogo mensaje = new Dialogo();
-    
-    while (elegir != 0) {
-    
-    	elegir=opcion.obtenerOpcionMainBlablakid();
-    	
-    	if (elegir == 1) {
-    		
-    		kid tmpKid = new kid();
-           
-            tmpKid.SetNombre(opcion.obtenerNomKid());
-            listaKids.add(tmpKid);
-            
-    	}
-    }
-	
-}*/
 }
