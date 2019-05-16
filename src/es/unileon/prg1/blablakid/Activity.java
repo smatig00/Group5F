@@ -21,7 +21,7 @@ public class Activity {
 	 * 
 	 */
 	private String place;
-	private WeekDays day;
+	private Week day;
 	private Time start;
 	private Time end;
 	private Ride before;
@@ -35,9 +35,14 @@ public class Activity {
 	 * @param place
 	 *            Identifier to the place associated to the activity.
 	 */
-	public Activity(String name, String place /*, ...*/) {
+	public Activity(String name, String place, Week day, Time start, Time end, Ride before, Ride after) {
 		this.name = name;
 		this.place = place;
+		this.day = day;
+		this.start = start;
+		this.end = end;
+		this.before = before;
+		this.after = after;
 	}
 	
 	/**
@@ -50,6 +55,11 @@ public class Activity {
 	public Activity(Activity another) {
 		this.name = another.getName();
 		this.place = another.getPlace();
+		this.day = another.getDay();
+		this.start = another.getStart();
+		this.end = another.getEnd();
+		this.before = another.getBefore();
+		this.after = another.getAfter();
 	}
 	
 	/**
@@ -77,10 +87,49 @@ public class Activity {
 	 * @param place
 	 * 			Identifier of the new activity' place.
 	 */
-	public void setPlace(String place) {
-		this.place = place;
+	public void setPlace(String newPlace) {
+		this.place = newPlace;
 	}
 	
+	public Week getDay() {
+		return this.day;
+	}
+	
+	/*public void setDay(Week newDay) {
+		this.day = newDay;
+	}*/
+	
+	public Time getStart() {
+		return this.start; 
+	}
+	
+	/*public void setStart(Time newStart) {
+		this.start = newStart;
+	}*/
+	
+	public Time getEnd() {
+		return this.end;
+	}
+	
+	/*public void setEnd(Time newEnd) {
+		this.end = newEnd;
+	}*/
+	
+	public Ride getBefore() {
+		return this.before;
+	}
+	
+	/*public void setBefore(Ride newBefore) {
+		this.before = newBefore;
+	}*/
+	
+	public Ride getAfter() {
+		return this.after;
+	}
+	
+	/*public void setAfter(Ride newAfter) {
+		this.after = newAfter;
+	}*/
 	/**
 	 * Method of the class. Prints what the returns indicates.
 	 * 
@@ -88,111 +137,15 @@ public class Activity {
 	 * 
 	 */
 	public String toString() {
-		return this.name + " : " + this.place;
+		String buffer = "";
+		buffer = buffer + name;
+		buffer = buffer + place;
+		buffer = buffer + day;
+		buffer = buffer + start;
+		buffer = buffer + end;
+		buffer = buffer + before;
+		buffer = buffer + after;
+		return buffer;
 	}
 	
-	
-/*
-	private String act;
-	private String lugar;
-	private int day;
-	private String kid;
-	private int hour;
-	private int minute;
-	private int endHour;
-	private int endMin;
-	
-	public Activity() {
-		
-		act= "desconocido";
-		lugar= "desconocido";
-		day=0;
-		kid="desconocido";
-		hour=0;
-		minute=0;
-		endHour=0;
-		endMin=0;
-		
-	}
-	
-	public void setAct(String act) {
-		
-		this.act=act;
-	}
-	
-	public String  getAct() {
-		
-		return act;
-	}
-	
-	public void setLugar(String lugar) {
-		
-		this.lugar=lugar;
-	}
-	
-	public String getLugar() {
-		
-		return lugar;		
-	}
-	
-	public void getDay(int day) {
-		
-		this.day=day;
-	}
-	
-	public int getDay() {
-		
-		return day;		
-	}
-	
-	public void setKid(String kid) {
-		
-		this.kid=kid;
-	}
-	
-	public String getKid() {
-		
-		return kid;
-	}
-	
-	public void setHour(int hour) {
-		
-		this.endHour=hour;
-	}
-	
-	public int getHour() {
-		
-		return hour;
-	}
-	
-	public void setMinute(int minute) {
-		
-		this.minute=minute;
-	}
-	
-	public int getMinute() {
-		
-		return minute;
-	}
-	
-	public void setEndHour(int endHour) {
-		
-		this.endHour=endHour;
-	}
-	
-	public int getEndhour() {
-		
-		return endHour;
-	}
-	
-	public void setendMin(int endMin) {
-		
-		this.endMin=endMin;
-	}
-	
-	public int getendMin() {
-		
-		return endMin;
-	}
-*/
 }
