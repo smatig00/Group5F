@@ -33,8 +33,8 @@ public class Kids {
 	 * Builder of the class.
 	 * 
 	 */
-	public Kids(){
-		this.kids = new Kid[50];
+	public Kids(int size){
+		this.kids = new Kid[size];
 		this.next = 0;		
 
 	}
