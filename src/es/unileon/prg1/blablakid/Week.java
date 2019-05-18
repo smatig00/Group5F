@@ -21,5 +21,29 @@ public class Week {
 		}
 	}
 	
-
+	public void add(Day day) {
+		
+	}
+	
+	public void removeDay() {
+		
+	}
+	
+	public void search() {
+		
+	}
+	
+	public void move() {
+		
+	}
+	
+	public String toString() {
+		return null;
+	}
+	
+//metodo añadir dia
+	//remove dia
+	//buscar si ya esta el dia
+	//ordenar el array al eliminar un ride para tal dia
+	//toString
 }
