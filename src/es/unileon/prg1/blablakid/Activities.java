@@ -30,16 +30,14 @@ public class Activities {
 	 * 
 	 */
 	private Activity[] activities;
-	
-	private final int MAX_ACTIVITIES = 3;
-	
+		
 	/**
 	 * Builder of the class.
 	 * 
 	 */
-	public Activities() {
-		this.activities = new Activity[MAX_ACTIVITIES];
+	public Activities(int numMaxActivities) {
 		this.next = 0;
+		this.activities = new Activity[numMaxActivities];
 	}
 	
 	/**
@@ -52,7 +50,7 @@ public class Activities {
 	 * 			Exception of the class
 	 * 
 	 */
-	public boolean addActivity(Activity activity) throws BlablakidException {
+	public boolean add(Activity activity) throws BlablakidException {
 		//log.entry();
 		
 		if(search(activity.getName()) == true) {
@@ -114,8 +112,8 @@ public class Activities {
 	 * 			Exception of the class.
 	 * 
 	 */
-	public void removeActivity(Activity activity) throws BlablakidException {
-		int pos = this.checkActivity(activity.getName());
+	public void removeActivity(String name, int day) throws BlablakidException {
+		int pos = this.checkActivity(name, day);
 		if(pos == -1) {
 			throw new BlablakidException("Error, this activity it is not in the aplication.");
 			
@@ -146,17 +144,32 @@ public class Activities {
 	 * @return the position.
 	 * 
 	 */
-	public int checkActivity(String name) {
+	public int checkActivity(String name, int day) {
 		for(int i = 0; i < activities.length; i++) {
-			if(activities[i].getName().equals(name)) {
+			if(activities[i].getName().equals(name) && activities[i].getDay() == day) {//week
 				return i;
 			}
 		}
 		return -1;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return activities.length;
+	}
 	
 	
+	public Activity get(int index) {
+		for (int i = 0; i < activities.length; i++) {
+			return this.activities[i];
+		}
+		return null;
+	}
+	//?
+	//public Activity get(int index) devuelve un objecto de tipo activity que este en el array
 	
 	/**
 	 * Method of the class. Prints the content of the activities array.
@@ -164,13 +177,13 @@ public class Activities {
 	 * @return the content of the activities array.
 	 * 
 	 */
-	/*public String toString() {
+	public String toString() {
 		StringBuilder output = new StringBuilder();
 		
 		for(int i = 0; i < this.next; i++) {
 			output.append(activities[i].toString() + "\n");
 		}
 		return output.toString();
-	}*/
+	}
 
 }
