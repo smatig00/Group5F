@@ -16,10 +16,9 @@ public class Parent {
 	 */
 	private String name;
 	
-	/**
-	 * Identifier to the name associated to the parent.
-	 */
-	private double value;
+	private Kids kids;
+	
+	private Week Week;
 	
 	/**
 	 * Builder of the class. Creates a parent with name and a value.
@@ -29,9 +28,9 @@ public class Parent {
 	 * @param valor
 	 *            Identifier to the value associated to the parent.
 	 */
-	public Parent(String name, double value) {
+	public Parent(String name, Kids kids) {
 		this.name = name;
-		this.value = value;
+		this.kids = kids;
 	}
 	
 	/**
@@ -43,7 +42,8 @@ public class Parent {
 	 */
 	public Parent(Parent another) {
 		this.name = another.getName();
-		this.value = another.getValue();
+		this.kids = another.getKids();
+		
 	}
 	
 	/**
@@ -54,25 +54,17 @@ public class Parent {
 	 */
 	public String getName() {
 		return this.name;
+		
 	}
 	
 	/**
-	 * Method of the class. Returns the parent's value.
+	 * Method of the class. Returns the kids of the parent.
 	 * 
-	 * @return parent's value.
-	 * 
+	 * @return kids of the parent.
 	 */
-	public double getValue() {
-		return this.value;
-	}
-	
-	/**
-	 * Method of the class. Saves a new parent's value.
-	 * @param value
-	 * 			Identifier of the new parent's value.
-	 */
-	public void setValue(double value) {
-		this.value = value;
+	public Kids getKids() {
+		return this.kids;
+		
 	}
 	
 	/**
@@ -82,7 +74,11 @@ public class Parent {
 	 * 
 	 */
 	public String toString() {
-		return this.name + " : " + this.value;
+		StringBuilder output = new StringBuilder();
+		output = output.append(name + " ");
+		output = output.append(kids);
+		return output.toString();
+		
 	}
 
 }
