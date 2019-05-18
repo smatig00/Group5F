@@ -50,12 +50,12 @@ public class Rides {
 	 * 			Exception of the class
 	 * 
 	 */
-	public boolean addRide(Ride ride) throws BlablakidException {
+	public boolean add(Ride ride) throws BlablakidException {
 		//log.entry();
 		
-		if(search(ride.getName()) == true) {
+		if(search(ride.getStartPlace()) == true) {
 			//log.error("Add ride error: Ride " + ride.getName() + " already in the aplication.");
-			throw new BlablakidException("Add ride error: Ride " + ride.getName() + " already in the aplication.");
+			throw new BlablakidException("Add ride error: Ride " + ride.getStartPlace() + " already in the aplication.");
 			//return false;
 		}
 		else if(this.next == rides.length) {
@@ -75,11 +75,11 @@ public class Rides {
 	 * @param name
 	 * @return boolean
 	 */
-	public boolean search(String name) {
+	public boolean search(String startPlace) {
 		boolean ok = false;
 		int counter = 0;
 		while(counter < rides.length) {
-			if(isSame(this.rides[counter].getName(), name)) {
+			if(isSame(this.rides[counter].getStartPlace(), startPlace)) {
 				ok = true;
 				break;
 			}else {
@@ -112,8 +112,8 @@ public class Rides {
 	 * 			Exception of the class
 	 * 
 	 */
-	public void removeRide(Ride ride) throws BlablakidException {
-		int pos = this.checkRide(ride.getName());
+	public void removeRide(String startPlace) throws BlablakidException {
+		int pos = this.checkRide(startPlace);
 		if(pos == -1) {
 			throw new BlablakidException("Error, this ride it is not in the aplication.");
 			
@@ -144,15 +144,37 @@ public class Rides {
 	 * @return the position.
 	 * 
 	 */
-	public int checkRide(String name) {
+	public int checkRide(String startPlace) {
 		for(int i = 0; i < rides.length; i++) {
-			if(rides[i].getName().equals(name)) {
+			if(rides[i].getStartPlace().equals(startPlace)) {
 				return i;
 			}
 		}
 		return -1;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return rides.length;
+	}
+	
+	/**
+	 * Method of the class. Prints the content of the rides array.
+	 * 
+	 * @return the content of the rides array.
+	 * 
+	 */
+	public String toString() {
+		StringBuilder output = new StringBuilder();
+		
+		for(int i = 0; i < this.next; i++) {
+			output.append(rides[i].toString() + "\n");
+		}
+		return output.toString();
+	}
 	
 	/*-----------------------------------------------------
 	 * otra forma de hacerlo que tambien deberia funcionar
