@@ -10,49 +10,19 @@ package es.unileon.prg1.blablakid;
 
 public class Ride {
 	
-	private String name;
-	private Parent parentName;
-	private Kid kidName;
 	private Time startRide;
 	private Time endRide;
 	private String endPlace;
 	private String startPlace;
 	
 	
-	public Ride(String name, Parent parentName, Kid kidName, Time startRide, Time endRide, String startPlace, String endPlace) {
+	public Ride(Time startRide, Time endRide, String startPlace, String endPlace) {
 		
-		this.name = name;
-		this.parentName = parentName;
-		this.kidName = kidName;
 		this.startRide = startRide;
 		this.endRide = endRide;
 		this.startPlace = startPlace;
 		this.endPlace = endPlace;
 		
-	}
-	
-	public void setName(String newName) {
-		this.name = newName;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setParentName(Parent newParentName) {
-		this.parentName = newParentName;
-	}
-	
-	public Parent getParentName() {
-		return parentName;
-	}
-
-	public void setKidName(Kid newKidName) {
-		this.kidName = newKidName;
-	}
-	
-	public Kid getKidName() {
-		return kidName;
 	}
 	
 	public void setStartRide(Time newStartRide) {
@@ -96,15 +66,12 @@ public class Ride {
 	}
 	
 	public String toString() {
-		String buffer = "";
-		buffer = buffer + name;
-		buffer = buffer + " " + parentName;
-		buffer = buffer + " " + kidName;
-		buffer = buffer + " " + startRide.toString();
-		buffer = buffer + " " + endRide.toString();
-		buffer = buffer + " " + startPlace;
-		buffer = buffer + " " + endPlace;
-		return buffer;
+		StringBuilder output = new StringBuilder();
+		output = output.append(startRide.toString() + " ");
+		output = output.append(endRide.toString() + " ");
+		output = output.append(startPlace + " ");
+		output = output.append(endPlace);
+		return output.toString();
 	}
 
 }
