@@ -59,9 +59,10 @@ public class Kid {
 	 * 
 	 */
 	public String toString() {
-		String buffer = "";
-		buffer = buffer + name;
-		return buffer;
+		StringBuilder output = new StringBuilder();
+		output = output.append(name);
+		return output.toString();
+		
 	}
 	
 	
