@@ -48,7 +48,7 @@ public class Kids {
 	 * @throws BlablakidException 
 	 * 			Exception of the class
 	 */
-	public boolean addKid(Kid kid) throws BlablakidException{
+	public boolean add(Kid kid) throws BlablakidException{
 		//log.entry();
 		
 		if(search(kid.getName()) == true){
@@ -114,8 +114,8 @@ public class Kids {
 	 * 			Exception of the class
 	 *
 	 */
-	public void removeKid(Kid kid) throws BlablakidException {
-		int pos = this.checkKid(kid.getName());
+	public void removeKid(String name) throws BlablakidException {
+		int pos = this.checkKid(name);
 		if(pos == -1) {
 			throw new BlablakidException("Error, this kid it is not in the aplication.");
 			
@@ -154,6 +154,30 @@ public class Kids {
 			}
 		}
 		return -1;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return kids.length;
+		
+	}
+	
+	/**
+	 * Method of the class. Prints the content of the kids array.
+	 * 
+	 * @return the content of the kids array.
+	 * 
+	 */
+	public String toString() {
+		StringBuilder output = new StringBuilder();
+		
+		for(int i = 0; i < this.next; i++) {
+			output.append(kids[i].toString() + "\n");
+		}
+		return output.toString();
 	}
 	
 	
