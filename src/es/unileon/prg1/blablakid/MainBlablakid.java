@@ -17,9 +17,21 @@ import java.io.*;
  */
 public class MainBlablakid {
 
+	/**
+	 * A logger is created for the Menu class.
+	 * 
+	 */
 	private final static Logger log = LogManager.getLogger(MainBlablakid.class);
 	
+	/**
+	 * 
+	 * @param args String array with the data of the aplication.
+
+	 * @throws BlablakidException if the data it is not correct.
+	 */
 	public static void main(String args[]) {
+		
+		log.info("Entering to BlablaKid aplication");
 		
 		int num;
 		if(args.length != 1) {
@@ -31,13 +43,13 @@ public class MainBlablakid {
 			try {
 				
 				num = Integer.parseInt(args[0]);
+				log.info("Correct data entered");
 				
 			}catch(NumberFormatException e) {
-				
-				System.out.println("");
-				
+				System.err.println(e.getMessage() + "\nWrong syntax of the program.\n");
+				log.fatal("Exiting of the execution of the aplication");
 			}
-			Blablakid blablakid = new MainBlablakid(num);
+			Blablakid blablakid = new Blablakid(num);
 			TextUI textUI = new TextUI(blablakid);
 			textUI.start();
 		}
