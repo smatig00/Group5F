@@ -137,15 +137,16 @@ public class Activity {
 	 * 
 	 */
 	public String toString() {
-		String buffer = "";
-		buffer = buffer + name;
-		buffer = buffer + place;
-		buffer = buffer + day;
-		buffer = buffer + start;
-		buffer = buffer + end;
-		buffer = buffer + before;
-		buffer = buffer + after;
-		return buffer;
+		StringBuilder output = new StringBuilder();
+		output = output.append(name + " ");
+		output = output.append(place + " ");
+		output =  output.append(day + " ");
+		output = output.append(start.toString() + " ");
+		output = output.append(end.toString() + " ");
+		output = output.append(before + " ");
+		output = output.append(after);
+		return output.toString();
+		
 	}
 	
 }
