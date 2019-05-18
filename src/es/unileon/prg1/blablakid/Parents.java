@@ -53,7 +53,7 @@ public class Parents {
 	 * 
 	 */
 	
-	public boolean addParent(Parent parent) throws BlablakidException {
+	public boolean add(Parent parent) throws BlablakidException {
 		//log.entry();
 		
 		if(search(parent.getName()) == true){
@@ -114,8 +114,8 @@ public class Parents {
 	 * 			Exception of the class
 	 *
 	 */
-	public void removeKid(Parent parent) throws BlablakidException {
-		int pos = this.checkParent(parent.getName());
+	public void removeParent(String name) throws BlablakidException {
+		int pos = this.checkParent(name);
 		if(pos == -1) {
 			throw new BlablakidException("Error, this parent it is not in the aplication.");
 			
@@ -155,7 +155,10 @@ public class Parents {
 		return -1;
 	}
 	
-	
+	public int getSize() {
+		return parents.length;
+		
+	}	
 	
 	/**
 	 * Method of the class. Prints the content of the parents array.
@@ -163,13 +166,13 @@ public class Parents {
 	 * @return the content of the parents array.
 	 * 
 	 */
-	/*public String toString() {
+	public String toString() {
 		StringBuilder output = new StringBuilder();
 		
-		for(int i = 0; i < this.counter; i++) {
+		for(int i = 0; i < this.next; i++) {
 			output.append(parents[i].toString() + "\n");
 		}
 		return output.toString();
-	}*/
+	}
 	
 }
