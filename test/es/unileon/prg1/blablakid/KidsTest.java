@@ -13,26 +13,26 @@ public class KidsTest {
 	@Before
 	public void setUp() throws BlablakidException {
 		kids = new Kids(3);
-		kids.addKid(new Kid("Pablo"));
+		kids.add(new Kid("Pablo"));
 		
 	}
 	
 	@Test
-	public void testAddKidOk() throws BlablakidException {
-		kids.addKid(new Kid("Marta"));
+	public void testAddOk() throws BlablakidException {
+		kids.add(new Kid("Marta"));
 		
 	}
 	
 	@Test (expected = BlablakidException.class)
-	public void testAddKidRepeated() throws BlablakidException {
-		kids.addKid(new Kid("Pablo"));
+	public void testAddRepeated() throws BlablakidException {
+		kids.add(new Kid("Pablo"));
 		
 	}
 	
 	@Test (expected = BlablakidException.class)
-	public void testAddKidListFull() throws BlablakidException {
+	public void testAddListFull() throws BlablakidException {
 		kids = new Kids(0);
-		kids.addKid(new Kid("Marcos"));
+		kids.add(new Kid("Marcos"));
 		
 	}
 	
@@ -62,14 +62,14 @@ public class KidsTest {
 	
 	@Test
 	public void testRemoveKidOk() throws BlablakidException {
-		kids.addKid(new Kid("Juan"));
-		kids.removeKid(new Kid("Pablo"));
+		kids.add(new Kid("Juan"));
+		kids.removeKid("Pablo");
 		
 	}
 	
 	@Test
 	public void testRemoveKidNoExists() throws BlablakidException {
-		kids.removeKid(new Kid("Rosa"));
+		kids.removeKid("Rosa");
 		
 	}	
 
