@@ -18,7 +18,7 @@ public class Parent {
 	
 	private Kids kids;
 	
-	private Week Week;
+	private Week week;
 	
 	/**
 	 * Builder of the class. Creates a parent with name and a value.
