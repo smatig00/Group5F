@@ -37,7 +37,7 @@ public class Parents {
 	 * 			Maximum parents identifier.
 	 * 
 	 */
-	Parents(int maxParents){
+	public Parents(int maxParents){
 		this.parents = new Parent[maxParents];
 		this.next = 0;
 	}
