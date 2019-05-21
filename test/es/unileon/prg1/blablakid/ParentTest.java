@@ -17,7 +17,7 @@ public class ParentTest {
 	
 	@Test 
 	public void testParent() throws BlablakidException {
-		Parent Ana = new Parent("Ana", new Kids(3));
+		Parent Ana = new Parent(new Parent("Ana", new Kids(3)));
 		assertEquals("Ana", Ana.getName());
 		
 	}
@@ -28,13 +28,13 @@ public class ParentTest {
 		
 	}
 	
-	@Test
+	@Test//falla
 	public void testGetKids() throws BlablakidException {
 		assertEquals(3, Pedro.getKids());
 		
 	}
 	
-	@Test
+	@Test//falla
 	public void testToString() throws BlablakidException {
 		assertEquals("Pedro 3", Pedro.toString());
 		
