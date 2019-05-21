@@ -35,8 +35,8 @@ public class Rides {
 	 * Builder of the class.
 	 * 
 	 */
-	public Rides() {
-		this.rides = new Ride[50];
+	public Rides(int maxRides) {
+		this.rides = new Ride[maxRides];
 		this.next = 0;
 	}
 	
