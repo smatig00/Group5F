@@ -1,44 +1,57 @@
 package es.unileon.prg1.blablakid;
 
-public class Day {
 
-	private Week day;
+public class Day {
+	
+	private WeekDays day;
 	private Rides rides;
-	private int maxRides;
-	
-	public Day(Week day, int maxRides) {
+
+	public Day(WeekDays day, int maxRides) {
 		this.day = day;
-		this.maxRides = maxRides;
-	}
+		this.rides = new Rides(maxRides);
 	
-	public Week getDay() {
-		return this.day;
+	}
+
+	public int numRidesLength() {
+		return this.rides.getSize();
+	
+	} 
+
+
+	public boolean addRides(Rides rides) {
+		if(rides==null) {
+			return false;
 		
+		}
+		else {
+			
+			this.rides = rides;
+			return true;
+		}
 	}
-	
-	public int getNum() {
-		return 0;
-	}
-	
-	public int getMaxRidesParent() {
-		return 0;
-	}
-	
-	public boolean add(Ride ride) {
-		return false;
-	}
-	
-	public void removeRide(String startPlace) {
-		
-	}
-	
-	public Ride getRide() {
+
+	public static WeekDays getName(int numDay) {
+
+		switch (numDay) { 
+
+		case 0:
+			return (WeekDays.MONDAY); 
+
+		case 1:
+			return (WeekDays.TUESDAY); 
+
+		case 2:
+			return (WeekDays.WEDNESDAY); 
+
+		case 3:
+			return (WeekDays.THURSDAY); 
+
+		case 4:
+			return (WeekDays.FRIDAY); 
+
+		}
 		return null;
 	}
 	
-	public String toString() {
-		return null;
-	}
-	
-	
+
 }
